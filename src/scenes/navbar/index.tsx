@@ -5,6 +5,7 @@ import { SelectedPage } from "../../shared/types";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import { useState } from "react";
+import ActionButton from "../../shared/ActionButton";
 
 type Props = {
     selectedPage: SelectedPage;
@@ -21,7 +22,7 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
             <div className={`${flexBetween} mx-auto w-5/6`}>
                 <div className={`${flexBetween} w-full gap-16`}>
                     {/* left side */}
-                    <img src={Logo} alt="logo" />
+                    <img src={Logo} alt="logo" className="h-6" />
                     {/* right side */}
                     {isAboveMediumScreen ?
                     (<div className={`${flexBetween} w-full`}>
@@ -41,7 +42,7 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
                         </div>
                         <div className={`${flexBetween} gap-8`}>
                             <p>Sign in</p>
-                            <button>Become a Member</button>
+                            <ActionButton setSelectedPage={setSelectedPage}>Become a Member</ActionButton>
                         </div>
                     </div>) : (
                         <button className="rounded-full bg-secondary-500 p-2" 

@@ -8,6 +8,8 @@ import SponsorRedBull from "../../assets/SponsorRedBull.png";
 import SponsorForbes from "../../assets/SponsorForbes.png";
 import SponsorFortune from "../../assets/SponsorFortune.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { motion } from "framer-motion";
+
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
 }
@@ -23,19 +25,36 @@ const Home = ({ setSelectedPage }: Props) => {
                 {/* MAIN HEADER */}
                 <div className="z-10 mt-32 md:basis-3/5">
                     {/* HEADINGS */}
-                    <div className="md:-mt-20">
+                    <motion.div 
+                    className="md:-mt-20"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5}}
+                    transition={{duration: 0.5}}
+                    variants={{
+                        hidden: {opacity: 0, x: -50},
+                        visible: {opacity: 1, x: 0}
+                    }}>
                         {/*  */}
                         <div className="relative">
-                            <div className="before:absolute before:-top-20 before:-left-20 before:content-evolvetext before:z-[-1]">
+                            <div className="before:absolute before:-top-20 before:-left-20 md:before:content-evolvetext before:z-[-1]">
                                 <img src={HomePageText} alt="home-page-text" />
                             </div>
                         </div>
                         <p className="mt-8 text-sm">
                             Achieve your fitness goals! Our state-of-the-art facility offers cutting-edge equipment, expert trainers, and diverse classes tailored for all levels. Enjoy a welcoming environment designed to inspire and motivate. Join us today and start your journey to a healthier, stronger you!
                         </p>
-                    </div>
+                    </motion.div>
                     {/* ACTIONS */}
-                    <div className="mt-8 flex items-center gap-8">
+                    <motion.div className="mt-8 flex items-center gap-8"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.5}}
+                      transition={{delay: 0.2, duration: 0.5}}
+                      variants={{
+                          hidden: {opacity: 0, x: -50},
+                          visible: {opacity: 1, x: 0}
+                      }}>
                         <ActionButton setSelectedPage={setSelectedPage}>
                             Join Now
                         </ActionButton>
@@ -45,7 +64,7 @@ const Home = ({ setSelectedPage }: Props) => {
                             href={`#${SelectedPage.ContactUs}`}>
                             <p>Learn More</p>
                         </AnchorLink>
-                    </div>
+                    </motion.div>
                 </div>
                 {/* IMAGE */}
                 <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">

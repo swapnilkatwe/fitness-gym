@@ -20,7 +20,15 @@ const benefits: Array<BenefitType> = [
         title: "Expert Trainers",
         description: "Work with expert trainers dedicated to helping you achieve your fitness goals. With personalized guidance, professional expertise, and a focus on your progress, our trainers are here to support every step of your journey. Experience training tailored just for you!"
     }
-]
+];
+
+const containter = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.2 }
+    }
+};
+
 type Props = {
     setSelectedPage: (value: SelectedPage) => void
 }
@@ -34,15 +42,30 @@ const Benefits = ({ setSelectedPage }: Props) => {
                 onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}>
 
                 {/* HEADER SECTION */}
-                <div className="md:my-5 md:w-3/5">
+                <motion.div
+                    className="md:my-5 md:w-3/5"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5 }}
+                    variants={{
+                        hidden: { opacity: 0, x: -50 },
+                        visible: { opacity: 1, x: 0 }
+                    }}>
                     <HText>MORE THAN JUST A GYM</HText>
                     <p className="my-5 text-sm">
                         Its your ultimate wellness destination. Experience top-notch equipment, expert-led classes, and personalized training designed for all fitness levels. Our vibrant community and supportive environment will keep you motivated every step of the way. Redefine your fitness journey with us today!
                     </p>
-                </div>
+                </motion.div>
 
                 {/* BENEFITS SECTION */}
-                <div className="mt-5 items-center justify-between gap-8 md:flex">
+                <motion.div
+                    className="mt-5 items-center justify-between gap-8 md:flex"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    variants={containter}
+                >
                     {benefits.map((benefits: BenefitType) => (
                         <Benefit
                             key={benefits.title}
@@ -52,7 +75,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
                             setSelectedPage={setSelectedPage}
                         />
                     ))}
-                </div>
+                </motion.div>
 
             </motion.div>
         </section>

@@ -65,7 +65,7 @@ const OurClasses = ({ setSelectedPage }: Props) => {
                         <p className="py-5">Discover a variety of classes designed to energize and inspire! From high-intensity workouts to calming yoga and everything in between, there’s something for everyone. Led by expert instructors, our classes help you stay motivated and achieve your fitness goals</p>
                     </div>
                 </motion.div>
-                <div className="mt-10 h-[350px] w-full overflow-x-auto overflow-y-hidden">
+                <div className="mt-10 h-[300px] w-full overflow-x-auto overflow-y-hidden">
                     <ul className="w-[2800px] whitespace-nowrap">
                         {classes.map((item, index) => (
                             <Class

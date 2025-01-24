@@ -3,7 +3,8 @@ import { BenefitType, SelectedPage } from "../../shared/types";
 import { motion } from "framer-motion";
 import HText from "../../shared/HText";
 import Benefit from "./Benefit";
-
+import ActionButton from "../../shared/ActionButton";
+import BenefitsPageGraphics from "@/assets/BenefitsPageGraphic.png";
 const benefits: Array<BenefitType> = [
     {
         icon: <HomeModernIcon className="h-6 w-6" />,
@@ -76,7 +77,65 @@ const Benefits = ({ setSelectedPage }: Props) => {
                         />
                     ))}
                 </motion.div>
+                {/* GRAPHICS AND DESCRIPTION */}
+                <div className="mt-16 items-center justify-between gap-20 md:mt-25 md:flex">
+                    {/* GRAPHIC */}
+                    <img className="mx-auto"
+                        alt="benefits-page-graphic"
+                        src={BenefitsPageGraphics}
+                    />
+                    {/* DESCRIPTION */}
+                    <div>
+                        {/* TITLE */}
+                        <div className="relative">
+                            <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
+                                <motion.div
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ duration: 0.5 }}
+                                    variants={{
+                                        hidden: { opacity: 0, x: 40 },
+                                        visible: { opacity: 1, x: 0 }
+                                    }}
+                                >
+                                    <HText>MILLIONS OF HAPPY MEMBERS ARE GETTING{" "}
+                                        <span className="text-orange-500">FIT</span>
+                                    </HText>
+                                </motion.div>
+                            </div>
+                        </div>
+                        {/* DESCROPTION */}
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            variants={{
+                                hidden: { opacity: 0, x: 40 },
+                                visible: { opacity: 1, x: 0 }
+                            }}
+                        >
+                            <p className="my-5">
+                                Join the millions of happy members transforming their lives through fitness! Our community is built on shared goals, supportive connections, and a commitment to health and wellness. Whether you're a beginner or an experienced athlete, you'll find the motivation, resources, and encouragement you need to succeed. Experience the joy of achieving your fitness milestones in a vibrant and uplifting environment!
+                            </p>
+                            <p className="mb-5">
+                                We take pride in helping millions of members feel stronger, healthier, and more confident. With world-class facilities, expert trainers, and diverse classes, there's something for everyone. Our focus is not just on fitness but on building a lifestyle you will love. Be a part of a community where every member's success story inspires the next!
+                            </p>
+                        </motion.div>
+                        {/* BUTTON */}
+                        <div className="relative mt-16">
+                            <div
+                                className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                                <ActionButton setSelectedPage={setSelectedPage}>
+                                    Join Now
+                                </ActionButton>
+                            </div>
 
+                        </div>
+
+                    </div>
+                </div>
             </motion.div>
         </section>
     )

@@ -13,12 +13,11 @@ function App() {
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = () => {      
       if (window.scrollY === 0) { // if At the top of page
         setIsTopOfPage(true);
         setSelectedPage(SelectedPage.Home);
-      }
-      if (window.screenY !== 0) { // if not at top of page
+      } else {
         setIsTopOfPage(false);
       }
     }

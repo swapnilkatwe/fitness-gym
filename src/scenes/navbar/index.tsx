@@ -1,7 +1,7 @@
 // import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
 import Link from "./Link";
-import { SelectedPage } from "../../shared/types";
+import { getTitleForSelectedPage, SelectedPage } from "../../shared/types";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
@@ -28,16 +28,16 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
                     {isAboveMediumScreen ?
                         (<div className={`${flexBetween} w-full`}>
                             <div className={`${flexBetween} gap-8 text-sm`}>
-                                <Link page={SelectedPage.Home}
+                                <Link page={getTitleForSelectedPage(SelectedPage.Home)}
                                     selectedPage={selectedPage}
                                     setSelectedPage={setSelectedPage} />
-                                <Link page={SelectedPage.Benefits}
+                                <Link page={getTitleForSelectedPage(SelectedPage.Benefits)}
                                     selectedPage={selectedPage}
                                     setSelectedPage={setSelectedPage} />
-                                <Link page={SelectedPage.OurClasses}
+                                <Link page={getTitleForSelectedPage(SelectedPage.OurClasses)}
                                     selectedPage={selectedPage}
                                     setSelectedPage={setSelectedPage} />
-                                <Link page={SelectedPage.ContactUs}
+                                <Link page={getTitleForSelectedPage(SelectedPage.ContactUs)}
                                     selectedPage={selectedPage}
                                     setSelectedPage={setSelectedPage} />
                             </div>
@@ -68,16 +68,16 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
 
                 {/* MENU ITEMS */}
                 <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-                    <Link page={SelectedPage.Home}
+                    <Link page={getTitleForSelectedPage(SelectedPage.Home)}
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage} />
-                    <Link page={SelectedPage.Benefits}
+                    <Link page={getTitleForSelectedPage(SelectedPage.Benefits)}
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage} />
-                    <Link page={SelectedPage.OurClasses}
+                    <Link page={getTitleForSelectedPage(SelectedPage.OurClasses)}
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage} />
-                    <Link page={SelectedPage.ContactUs}
+                    <Link page={getTitleForSelectedPage(SelectedPage.ContactUs)}
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage} />
                 </div>

@@ -5,7 +5,7 @@ import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png"
 import HText from "../../shared/HText";
 
 type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
+  setSelectedPage: (value: SelectedPage) => void
 }
 
 const ContactUs = ({ setSelectedPage }: Props) => {
@@ -26,7 +26,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
   return (
     <section
-      id="conatactus"
+      id="contactus"
       className="mx-auto w-5/6 pt-24 pb-32"
     >
       <motion.div
@@ -44,7 +44,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           }}
         >
           <HText>
-            <span className="text-orange-500 ">JOIN NOW</span> TO GET IN SHAPE
+            <span className="text-orange-500">JOIN NOW</span> TO GET IN SHAPE
           </HText>
           <p className="my-5">
             Ready to transform your fitness journey? Join our gym today and unlock access to state-of-the-art facilities, expert trainers, and a supportive community. Take the first step toward a healthier, stronger, and happier you!
@@ -97,8 +97,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
               {errors.email && (
                 <p className="mt-1 text-orange-500">
-                  {errors.email.type == "required" && "This field is required."}
-                  {errors.email.type == "pattern" && "Invalid Email address"}
+                  {errors.email.type === "required" && "This field is required."}
+                  {errors.email.type === "pattern" && "Invalid Email address"}
                 </p>
 
               )}
@@ -110,13 +110,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 placeholder="MESSAGE"
                 {...register("message", {
                   required: true,
-                  maxLength: 250,
+                  maxLength: 1500,
                 })}
               />
               {errors.message && (
                 <p className="mt-1 text-orange-500">
-                  {errors.message.type == "required" && "This field is required."}
-                  {errors.message.type == "maxLength" && "Max length is 250 characters"}
+                  {errors.message.type === "required" && "This field is required."}
+                  {errors.message.type === "maxLength" && "Max length is 250 characters"}
                 </p>
               )}
 
